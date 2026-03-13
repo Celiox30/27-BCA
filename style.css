@@ -1,0 +1,156 @@
+/* --- STYLE GLOBAL --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333333;
+}
+
+h1, h2, h3 {
+    color: #003366; /* Bleu marine */
+}
+
+.conteneur {
+    width: 80%;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.section-grise {
+    background-color: #f4f4f4;
+    padding: 40px 20%; /* Pour garder le texte centré */
+}
+
+/* --- MENU --- */
+#entete {
+    background-color: #003366;
+    color: white;
+    display: flex; /* Aligne le logo et le menu sur la même ligne */
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+}
+
+#entete ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+#entete li {
+    margin: 0 15px;
+}
+
+#entete a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#entete a:hover {
+    color: #FFD700; /* Jaune or au survol */
+}
+
+/* --- ACCUEIL --- */
+#accueil {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: #e0e0e0; /* A remplacer par une image de fond en CSS si tu veux */
+    border-bottom: 5px solid #FFD700;
+}
+
+button {
+    background-color: #FFD700;
+    color: #003366;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #e6c200;
+}
+
+/* --- PRESENTATION --- */
+.boite-info {
+    border: 2px solid #003366;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* --- MATERIEL (TABLEAU) --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #cccccc;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #003366;
+    color: white;
+}
+
+.controles-materiel input, .controles-materiel select {
+    padding: 10px;
+    margin-right: 10px;
+}
+
+/* --- CARTE --- */
+#zone-carte {
+    position: relative; /* Très important pour que Marcinek place ses points par-dessus */
+    border: 2px solid #333;
+    max-width: 600px;
+}
+
+#info-carte {
+    background-color: #003366;
+    color: white;
+    padding: 15px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* --- CONTACT (FORMULAIRE) --- */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+}
+
+form label {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+form input, form textarea {
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* CLASSE TRES IMPORTANTE POUR MARCINEK (Vérification formulaire) */
+.erreur-bordure {
+    border: 2px solid red !important;
+}
+
+/* --- PIED DE PAGE --- */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}

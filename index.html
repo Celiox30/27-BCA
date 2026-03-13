@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>27e BCA - Toujours à l'affût</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header id="entete">
+        <div id="logo">27e BCA</div>
+        <nav>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#presentation">Présentation</a></li>
+                <li><a href="#materiel">Matériel</a></li>
+                <li><a href="#carte">Carte</a></li>
+                <li><a href="#actualites">Actualités</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="accueil" class="fond-image">
+        <img src="insigne.png" alt="Insigne du 27e BCA" width="150">
+        <h1>27e Bataillon de Chasseurs Alpins</h1>
+        <p>Infanterie de Montagne</p>
+        <button id="bouton-accueil">Découvrir notre mission</button>
+    </section>
+
+    <section id="presentation" class="conteneur">
+        <h2>Présentation de l'unité</h2>
+        <div class="boite-info">
+            <h3>Spécialité</h3>
+            <p>Infanterie de Montagne.</p>
+            
+            <h3>Date de création</h3>
+            <p>30 janvier 1871 (Devenu 27e BCA en novembre 1916).</p>
+            
+            <h3>Devise</h3>
+            <p>« Toujours à l'affût » (Anciennement : « Vivre libre ou mourir »).</p>
+            
+            <h3>Localisation</h3>
+            <p>Quartier Tom Morel, Cran-Gevrier (Grand Annecy).</p>
+        </div>
+    </section>
+
+    <section id="materiel" class="conteneur section-grise">
+        <h2>Matériel et véhicules</h2>
+        
+        <div class="controles-materiel">
+            <input type="text" id="nom-materiel" placeholder="Ex : HK 416 ou VAB">
+            <select id="type-materiel">
+                <option value="vehicule">Véhicule</option>
+                <option value="arme">Armement</option>
+            </select>
+            <button id="btn-ajouter-matos">Ajouter</button>
+            <button id="btn-supprimer-matos">Supprimer le dernier</button>
+            <button id="btn-trier-matos">Trier A-Z</button>
+        </div>
+
+        <table id="tableau-materiel">
+            <thead>
+                <tr>
+                    <th>Nom du matériel</th>
+                    <th>Catégorie</th>
+                </tr>
+            </thead>
+            <tbody id="liste-materiel">
+                </tbody>
+        </table>
+    </section>
+
+    <section id="carte" class="conteneur">
+        <h2>Carte simplifiée du camp</h2>
+        <p>Cliquez sur la carte pour voir les informations (Géré en JS).</p>
+        
+        <div id="zone-carte">
+            <img src="plan-camp.jpg" alt="Plan du quartier" width="100%">
+            </div>
+        
+        <div id="info-carte">Infos de la zone cliquée...</div>
+    </section>
+
+    <section id="actualites" class="conteneur section-grise">
+        <h2>Actualités de l'unité</h2>
+        
+        <div id="formulaire-news">
+            <input type="text" id="titre-news" placeholder="Titre de l'actualité">
+            <input type="text" id="contenu-news" placeholder="Contenu...">
+            <button id="btn-ajouter-news">Publier</button>
+        </div>
+
+        <div id="affichage-news"></div>
+    </section>
+
+    <section id="contact" class="conteneur">
+        <h2>Contact fictif</h2>
+        <form id="formulaire-contact">
+            <label>Nom :</label>
+            <input type="text" id="contact-nom">
+            
+            <label>Email :</label>
+            <input type="email" id="contact-email">
+            
+            <label>Message :</label>
+            <textarea id="contact-message" rows="4"></textarea>
+            
+            <button type="submit" id="btn-envoyer">Envoyer</button>
+            <button type="button" id="btn-effacer">Effacer les champs</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>Projet réalisé par Witwicki (Front) et Marcinek (JS)</p>
+    </footer>
+
+</body>
+</html>
