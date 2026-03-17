@@ -1,119 +1,141 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>27e BCA - Toujours à l'affût</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Test</title>
 </head>
+
 <body>
 
-    <header id="entete">
-        <div id="logo">27e BCA</div>
-        <nav>
-            <ul>
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#presentation">Présentation</a></li>
-                <li><a href="#materiel">Matériel</a></li>
-                <li><a href="#carte">Carte</a></li>
-                <li><a href="#actualites">Actualités</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<h2>Matériel</h2>
 
-    <section id="accueil" class="fond-image">
-        <img src="insigne.png" alt="Insigne du 27e BCA" width="150">
-        <h1>27e Bataillon de Chasseurs Alpins</h1>
-        <p>Infanterie de Montagne</p>
-        <button id="bouton-accueil">Découvrir notre mission</button>
-    </section>
+<input type="text" id="nom-materiel" placeholder="Nom">
+<select id="type-materiel">
+  <option value="véhicule">Véhicule</option>
+  <option value="arme">Arme</option>
+</select>
 
-    <section id="presentation" class="conteneur">
-        <h2>Présentation de l'unité</h2>
-        <div class="boite-info">
-            <h3>Spécialité</h3>
-            <p>Infanterie de Montagne.</p>
-            
-            <h3>Date de création</h3>
-            <p>30 janvier 1871 (Devenu 27e BCA en novembre 1916).</p>
-            
-            <h3>Devise</h3>
-            <p>« Toujours à l'affût » (Anciennement : « Vivre libre ou mourir »).</p>
-            
-            <h3>Localisation</h3>
-            <p>Quartier Tom Morel, Cran-Gevrier (Grand Annecy).</p>
-        </div>
-    </section>
+<button id="btn-ajouter-matos">Ajouter</button>
+<button id="btn-supprimer-matos">Supprimer</button>
+<button id="btn-trier-matos">Trier</button>
 
-    <section id="materiel" class="conteneur section-grise">
-        <h2>Matériel et véhicules</h2>
-        
-        <div class="controles-materiel">
-            <input type="text" id="nom-materiel" placeholder="Ex : HK 416 ou VAB">
-            <select id="type-materiel">
-                <option value="vehicule">Véhicule</option>
-                <option value="arme">Armement</option>
-            </select>
-            <button id="btn-ajouter-matos">Ajouter</button>
-            <button id="btn-supprimer-matos">Supprimer le dernier</button>
-            <button id="btn-trier-matos">Trier A-Z</button>
-        </div>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody id="liste-materiel"></tbody>
+</table>
 
-        <table id="tableau-materiel">
-            <thead>
-                <tr>
-                    <th>Nom du matériel</th>
-                    <th>Catégorie</th>
-                </tr>
-            </thead>
-            <tbody id="liste-materiel">
-                </tbody>
-        </table>
-    </section>
+<hr>
 
-    <section id="carte" class="conteneur">
-        <h2>Carte simplifiée du camp</h2>
-        <p>Cliquez sur la carte pour voir les informations (Géré en JS).</p>
-        
-        <div id="zone-carte">
-            <img src="plan-camp.jpg" alt="Plan du quartier" width="100%">
-            </div>
-        
-        <div id="info-carte">Infos de la zone cliquée...</div>
-    </section>
+<h2>Carte</h2>
+<div id="zone-carte" style="width:300px;height:150px;background:lightgray;cursor:pointer;">
+  Clique ici
+</div>
+<p id="info-carte"></p>
 
-    <section id="actualites" class="conteneur section-grise">
-        <h2>Actualités de l'unité</h2>
-        
-        <div id="formulaire-news">
-            <input type="text" id="titre-news" placeholder="Titre de l'actualité">
-            <input type="text" id="contenu-news" placeholder="Contenu...">
-            <button id="btn-ajouter-news">Publier</button>
-        </div>
+<hr>
 
-        <div id="affichage-news"></div>
-    </section>
+<h2>News</h2>
+<input id="titre-news" placeholder="Titre">
+<input id="contenu-news" placeholder="Contenu">
+<button id="btn-ajouter-news">Ajouter news</button>
+<div id="affichage-news"></div>
 
-    <section id="contact" class="conteneur">
-        <h2>Contact fictif</h2>
-        <form id="formulaire-contact">
-            <label>Nom :</label>
-            <input type="text" id="contact-nom">
-            
-            <label>Email :</label>
-            <input type="email" id="contact-email">
-            
-            <label>Message :</label>
-            <textarea id="contact-message" rows="4"></textarea>
-            
-            <button type="submit" id="btn-envoyer">Envoyer</button>
-            <button type="button" id="btn-effacer">Effacer les champs</button>
-        </form>
-    </section>
+<hr>
 
-    <footer>
-        <p>Projet réalisé par Witwicki (Front) et Marcinek (JS)</p>
-    </footer>
+<h2>Contact</h2>
+<form id="formulaire-contact">
+  <input id="contact-nom" placeholder="Nom"><br>
+  <input id="contact-email" placeholder="Email"><br>
+  <button type="submit">Envoyer</button>
+</form>
+
+<script>
+let materiels = [];
+
+function afficherMateriel() {
+  let liste = document.getElementById("liste-materiel");
+  liste.innerHTML = "";
+
+  materiels.forEach(m => {
+    let tr = document.createElement("tr");
+
+    let td1 = document.createElement("td");
+    td1.textContent = m.nom;
+
+    let td2 = document.createElement("td");
+    td2.textContent = m.type;
+
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    liste.appendChild(tr);
+  });
+}
+
+document.getElementById("btn-ajouter-matos").addEventListener("click", () => {
+  let nom = document.getElementById("nom-materiel").value;
+  let type = document.getElementById("type-materiel").value;
+
+  if (!nom) return;
+
+  materiels.push({ nom, type });
+  afficherMateriel();
+});
+
+document.getElementById("btn-supprimer-matos").addEventListener("click", () => {
+  materiels.pop();
+  afficherMateriel();
+});
+
+document.getElementById("btn-trier-matos").addEventListener("click", () => {
+  materiels.sort((a, b) => a.nom.localeCompare(b.nom));
+  afficherMateriel();
+});
+
+// CARTE
+document.getElementById("zone-carte").addEventListener("click", () => {
+  document.getElementById("info-carte").textContent = "Zone cliquée";
+});
+
+// NEWS
+let news = [];
+
+document.getElementById("btn-ajouter-news").addEventListener("click", () => {
+  let titre = document.getElementById("titre-news").value;
+  let contenu = document.getElementById("contenu-news").value;
+
+  if (!titre || !contenu) return;
+
+  news.push({ titre, contenu });
+
+  let div = document.getElementById("affichage-news");
+  div.innerHTML = "";
+
+  news.forEach(n => {
+    let p = document.createElement("p");
+    p.textContent = n.titre + " : " + n.contenu;
+    div.appendChild(p);
+  });
+});
+
+// CONTACT
+document.getElementById("formulaire-contact").addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  let nom = document.getElementById("contact-nom");
+  let email = document.getElementById("contact-email");
+
+  if (!nom.value || !email.value) {
+    alert("Champs manquants");
+  } else {
+    alert("Message envoyé !");
+  }
+});
+</script>
 
 </body>
 </html>
