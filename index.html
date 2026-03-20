@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>27e BCA - Site Officiel Collaboratif</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo-nav">27e BCA</div>
+        <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#presentation">L'Unité</a></li>
+            <li><a href="#materiel">Matériel</a></li>
+            <li><a href="#carte">Localisation</a></li>
+            <li><a href="#actus">Actualités</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="accueil" class="hero">
+        <div class="hero-content">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Insigne_du_27e_BCA.png" alt="Insigne 27 BCA" id="logo">
+            <h1 id="main-title" class="hidden">27e Bataillon de Chasseurs Alpins</h1>
+            <p id="mission-text">Vivre libre ou mourir - Toujours à l'affût</p>
+            <button id="btn-decouvrir">Découvrir l'unité</button>
+        </div>
+    </header>
+
+    <hr>
+
+    <section id="presentation">
+        <h2>Fiche d'Identité de l'Unité</h2>
+        <div class="grille-presentation">
+            <div class="carte-info">
+                <h3>Origines</h3>
+                <p><strong>Création :</strong> 1871 (Bataillon de Marche)</p>
+                <p><strong>Spécialité :</strong> Infanterie de Montagne (Troupes de Marine / Alpins)</p>
+                <p><strong>Garnison :</strong> Annecy, Quartier Tom Morel.</p>
+            </div>
+            <div class="carte-info">
+                <h3>Symbolique</h3>
+                <p><strong>Devise historique :</strong> "Vivre libre ou mourir" (Glières)</p>
+                <p><strong>Devise actuelle :</strong> "Toujours à l'affût"</p>
+                <p><strong>Refrain :</strong> "Si vous avez des filles à marier, ne les donnez pas aux chasseurs..."</p>
+            </div>
+        </div>
+        
+        <div class="historique">
+            <h3>Faits d'Armes</h3>
+            <ul>
+                <li><strong>1914-1918 :</strong> Surnommés les "Diables Bleus" par les Allemands.</li>
+                <li><strong>1944 :</strong> Résistance héroïque sur le plateau des Glières.</li>
+                <li><strong>Récent :</strong> Engagé au Liban, Afghanistan, Mali (Barkhane) et Roumanie (Aigle).</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="materiel">
+        <h2>Matériel et Véhicules</h2>
+        <div class="controls">
+            <input type="text" id="input-nom" placeholder="Nom du matériel">
+            <select id="select-type">
+                <option value="véhicule">Véhicule</option>
+                <option value="arme">Armement</option>
+            </select>
+            <button id="btn-ajouter">Ajouter</button>
+            <button id="btn-trier">Trier A-Z</button>
+            <button id="btn-supprimer">Supprimer dernier</button>
+        </div>
+        <table id="table-materiel">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Catégorie</th>
+                </tr>
+            </thead>
+            <tbody id="body-materiel">
+                </tbody>
+        </table>
+    </section>
+
+    <section id="carte">
+        <h2>Carte du Quartier Tom Morel</h2>
+        <div class="map-container">
+            <img src="Screenshot 2026-03-17 at 09-49-21 Carte sans titre - Google Earth.png" alt="Camp Militaire" class="map-img">
+            <div id="marker-pc" class="marker" data-info="Poste de Commandement (PC)"></div>
+            <div id="marker-garage" class="marker" data-info="Zone technique / Véhicules"></div>
+        </div>
+        <p id="info-carte">Cliquez sur un marqueur pour voir les détails.</p>
+    </section>
+
+    <section id="actus">
+        <h2>Actualités du Bataillon</h2>
+        <div id="news-container"></div>
+        <div class="news-form">
+            <input type="text" id="news-titre" placeholder="Titre de l'actu">
+            <textarea id="news-texte" placeholder="Contenu..."></textarea>
+            <button id="btn-news">Publier</button>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Fictif</h2>
+        <form id="form-contact">
+            <input type="text" id="nom" placeholder="Votre nom">
+            <input type="email" id="email" placeholder="Email">
+            <textarea id="msg" placeholder="Votre message"></textarea>
+            <div class="form-btns">
+                <button type="submit">Envoyer</button>
+                <button type="reset" id="btn-reset">Effacer</button>
+            </div>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
